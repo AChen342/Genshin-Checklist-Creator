@@ -1,9 +1,6 @@
 import numpy as np
 import os
-import colorama
 from os import system, name
-from colorama import Fore, Back, Style
-colorama.init(autoreset=True)
 
 def clear():
     if name == 'nt':
@@ -14,8 +11,13 @@ class character:
         self.charName = charName
         self.charLevel = charLevel
 
-    def calcAscendTimes(self):  #Finds out how many times the character will ascend and returns a variable integer called 'ascendTimes'
 
+    ''' 
+    Finds out how many times the character will 
+    ascend and returns a variable integer called 
+    'ascendTimes'
+    '''
+    def calcAscendTimes(self):  
         levelCap = [20, 40, 50, 60, 70, 80, 90]
         counter = 0
         ascendTimes = 0
@@ -72,7 +74,13 @@ class character:
         return charMatsNeeded
 
     def numOfMatsNeeded(self):
-        np.matAmounts = [[1, 0, 0, 0, 0, 3, 3, 0, 0, 20000], [0, 2, 6, 0, 2, 10, 15, 0, 0, 40000], [0, 3, 0, 0, 4, 20, 0, 12, 0, 60000], [0, 0, 3, 0, 8, 30, 0, 18, 0, 80000], [0, 0, 6, 0, 12, 45, 0, 0, 12, 100000], [0, 0, 0, 6, 20, 60, 0, 0, 24, 120000]]
+        np.matAmounts = [[1, 0, 0, 0, 0, 3, 3, 0, 0, 20000], 
+                        [0, 2, 6, 0, 2, 10, 15, 0, 0, 40000], 
+                        [0, 3, 0, 0, 4, 20, 0, 12, 0, 60000], 
+                        [0, 0, 3, 0, 8, 30, 0, 18, 0, 80000], 
+                        [0, 0, 6, 0, 12, 45, 0, 0, 12, 100000], 
+                        [0, 0, 0, 6, 20, 60, 0, 0, 24, 120000]]
+
         np.matTotal = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
         counter = 0
@@ -113,6 +121,7 @@ class characterFile:
             print("\nChecklist has been created.")
             next = input("<Press Enter to Return Home>")
             clear()
+
 class checklist:
     def __init__(self, charName, charLevel):
         self.charName = charName
@@ -261,7 +270,6 @@ class userOptions:
                 print("*"*36, end="\n")
                 print("="*36)
         else:
-            print("| Selected |>\t[" + Fore.RED + " 3. Delete Checklist " + Fore.RESET + "]")
             print("You have not created any checklists yet.\n")
             next = input("<Press Enter to Return Home>")
             clear()
